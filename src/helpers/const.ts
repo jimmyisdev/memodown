@@ -1,0 +1,1 @@
+export const notizHead = ["type", "", "details"]
