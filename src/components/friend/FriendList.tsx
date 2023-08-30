@@ -7,7 +7,7 @@ import { User } from "../../../types";
 import RemoveFriend from './RemoveFriend';
 import LoadingMsg from '../shared/LoadingMsg';
 
-export default async function FriendList() {
+export default function FriendList() {
     const { data: friendsList, isLoading } = useGetFriendsQuery()
 
     return (
