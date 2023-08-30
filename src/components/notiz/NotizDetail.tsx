@@ -4,6 +4,7 @@ import { AiFillEdit } from "react-icons/ai";
 import { useUpdateNotizMutation } from "@/redux/features/notizSlice";
 import NotizTypeSelector from "./NotizTypeSelector";
 import { Notiz } from "../../../types";
+import Tooltip from "../shared/Tooltip";
 
 export default function NotizDetail({ data }: { data: Partial<Notiz> }) {
     const [updateNotiz] = useUpdateNotizMutation()
@@ -37,7 +38,9 @@ export default function NotizDetail({ data }: { data: Partial<Notiz> }) {
             </div>
             <div className="flex flex-flex justify-around items-center  m-2">
                 <span >Created on {createdAt}</span>
-                <button className="cursor-pointer" onClick={handleUpdateBten}><AiFillEdit /></button>
+                <Tooltip message="Edit Notiz">
+                    <button className="cursor-pointer" onClick={handleUpdateBten}><AiFillEdit /></button>
+                </Tooltip>
             </div>
         </div>
     )

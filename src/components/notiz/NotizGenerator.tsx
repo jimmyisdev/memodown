@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { AiOutlineUpCircle, AiOutlineDownCircle } from "react-icons/ai";
 import NotizTypeSelector from './NotizTypeSelector';
 import ErrorMsg from '../shared/ErrorMsg';
+import Tooltip from '../shared/Tooltip';
 
 export default function NotizGenerator() {
     const [isGeneratorOpen, setIsGeneratorOpen] = useState(false)
@@ -38,6 +39,8 @@ export default function NotizGenerator() {
                     </div>
                 </>)
             }
-            <button className='cursor-pointer' onClick={() => setIsGeneratorOpen(!isGeneratorOpen)}>{isGeneratorOpen ? <AiOutlineUpCircle /> : <AiOutlineDownCircle />}</button>
+            <Tooltip message='Create a new notiz'>
+                <button className='cursor-pointer' onClick={() => setIsGeneratorOpen(!isGeneratorOpen)}>{isGeneratorOpen ? <AiOutlineUpCircle /> : <AiOutlineDownCircle />}</button>
+            </Tooltip>
         </>)
 }

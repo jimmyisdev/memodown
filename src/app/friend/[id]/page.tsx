@@ -3,11 +3,6 @@ import LoadingMsg from "@/components/shared/LoadingMsg"
 import SharedLink from "@/components/shared/SharedLink"
 import { useGetMessagesBySenderIdQuery } from "@/redux/features/messageSlice"
 
-type Repo = {
-    name: string
-    stargazers_count: number
-}
-
 export default function Page({ params }: { params: { id: string } }) {
     const { id } = params
     const { data, isLoading } = useGetMessagesBySenderIdQuery(id)

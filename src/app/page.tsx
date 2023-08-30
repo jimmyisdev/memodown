@@ -1,9 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useGetUserInfoQuery } from '@/redux/features/authSlice'
-import LogoutBtn from '@/components/shared/LogoutBtn'
 import LoadingMsg from '@/components/shared/LoadingMsg'
-import ChangePasswordForm from '@/components/auth/ChangePasswordForm'
 import GlobalSetting from '@/components/shared/GlobalSetting'
 export default function Home() {
   const { data, isFetching: isFetchingUserInfo } = useGetUserInfoQuery()
@@ -32,7 +30,6 @@ export default function Home() {
             </li>
           </ul>
           <GlobalSetting />
-
         </>
       }
     </main>

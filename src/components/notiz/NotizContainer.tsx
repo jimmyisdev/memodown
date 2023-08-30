@@ -6,6 +6,7 @@ import { useDeleteNotizMutation, useGetNotizsQuery } from "@/redux/features/noti
 import NotizDetail from "./NotizDetail";
 import { Notiz } from "../../../types";
 import LoadingMsg from "../shared/LoadingMsg";
+import Tooltip from "../shared/Tooltip";
 
 export default function NotizContainer() {
     const { data, isFetching } = useGetNotizsQuery()
@@ -65,9 +66,15 @@ function NotizRow({ data }: any) {
                     </span>
                 </div>
                 <div className="w-18 p-2 flex flex-row ">
+                    {/* <Tooltip message="See Details"> */}
                     <button className="w-full m-1 cursor-pointer" onClick={handleDetailBtn}><BsThreeDots /></button>
+                    {/* </Tooltip> */}
+                    {/* <Tooltip message="Delete Notiz"> */}
                     <button className="w-full m-1 cursor-pointer" onClick={handleDeleteBtn}><AiFillDelete /></button>
+                    {/* </Tooltip> */}
+                    {/* <Tooltip message="Copy Notiz Text"> */}
                     <button className="w-full m-1 cursor-pointer" onClick={handleCopyBtn}><AiFillCopy /></button>
+                    {/* </Tooltip> */}
                 </div>
             </div>
             {

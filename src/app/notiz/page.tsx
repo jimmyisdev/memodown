@@ -5,6 +5,7 @@ import NotizGenerator from "@/components/notiz/NotizGenerator";
 import SharedLink from "@/components/shared/SharedLink";
 import PageTopic from "@/components/shared/PageTopic";
 import { useSelector } from "react-redux";
+import GlobalSetting from "@/components/shared/GlobalSetting";
 
 export default function Page() {
     return (
@@ -18,6 +19,7 @@ export default function Page() {
                 <NotizGenerator />
                 <NotizContainer />
                 <SharedLink hrefLink="/" btnText="Back" />
+                <GlobalSetting />
             </main >
         </>
     )

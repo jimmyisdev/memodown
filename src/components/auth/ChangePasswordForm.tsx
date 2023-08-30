@@ -28,13 +28,12 @@ export default function ChangePasswordForm() {
         })
     }
 
-    return (< div className="flex flex-col  p-3">
-        <h1 className="text-center mb-5 text-blue-900">Change Password</h1>
-        <input className="p-3 mb-3 border-b-2 border-blue-900" name="password" disabled={isLoading} placeholder="Input new password" onChange={(e) => handleOnChange('password', e.target.value)} />
-        <input className="p-3 mb-3 border-b-2 border-blue-900" name="password" disabled={isLoading} placeholder="Input new password again" onChange={(e) => handleOnChange('passwordCheck', e.target.value)} />
-        <button className='text-blue-900 font-medium text-center cursor-pointer' disabled={isLoading} onClick={handleConfirmBtn}>{isLoading ? "loading..." : "Confirm"}</button>
-    </div>
-
-
+    return (
+        < div className="flex flex-col  p-3">
+            <h1 className="text-center mb-5 text-blue-900">Change Password</h1>
+            <input className="p-3 mb-3 border-b-2 border-blue-900" name="password" disabled={isLoading} placeholder="Input password" onChange={(e) => handleOnChange('password', e.target.value)} />
+            <input className="p-3 mb-3 border-b-2 border-blue-900" name="password" disabled={isLoading} placeholder="Input password again" onChange={(e) => handleOnChange('passwordCheck', e.target.value)} />
+            <button className='text-blue-900 font-medium text-center cursor-pointer' disabled={isLoading} onClick={handleConfirmBtn}>{isLoading ? "loading..." : "Confirm"}</button>
+        </div>
     )
 }

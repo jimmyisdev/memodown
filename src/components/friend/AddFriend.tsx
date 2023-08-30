@@ -1,10 +1,11 @@
 "use client";
 
-import { AiFillDelete, AiOutlineUserAdd } from "react-icons/ai";
+import { AiOutlineUserAdd } from "react-icons/ai";
 import React, { useState } from 'react'
 import { generateErrorMsg } from '@/helpers/handelError';
 import { useAddFriendMutation } from '@/redux/features/friendSlice';
 import ErrorMsg from "../shared/ErrorMsg";
+import Tooltip from "../shared/Tooltip";
 
 export default function AddFriend() {
     const [email, setEmail] = useState('')
@@ -23,7 +24,9 @@ export default function AddFriend() {
     return (
         <section className="mb-5">
             <input className="p-4 mt-1" placeholder="Add friend email" onChange={(e) => setEmail(e.target.value)} />
-            <button className='text-blue-900 font-medium text-center m-1 cursor-pointer' disabled={isAddLoading} onClick={handleAddBtn}>{isAddLoading ? "Loading " : <AiOutlineUserAdd />}</button>
+            <Tooltip message="Add friend">
+                <button className='text-blue-900 font-medium text-center m-1 cursor-pointer' disabled={isAddLoading} onClick={handleAddBtn}>{isAddLoading ? "Loading " : <AiOutlineUserAdd />}</button>
+            </Tooltip>
             {isError && <ErrorMsg error={errorMsg} />}
         </section>)
 }
