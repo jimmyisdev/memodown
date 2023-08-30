@@ -1,18 +1,10 @@
-import {
-    createEntityAdapter,
-    createSelector
-} from "@reduxjs/toolkit";
-
 import { apiSlice } from "./apiSlice";
 import { Message } from "../../../types";
-
-// const messageAdapter = createEntityAdapter<AuthState>()
 
 type messageResponse = {
     data: Message[],
     error?: any
 }
-
 
 export const messageApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({

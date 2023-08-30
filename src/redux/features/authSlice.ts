@@ -56,6 +56,13 @@ export const authApiSlice = apiSlice.injectEndpoints({
         getUserInfo: builder.query<any, void>({
             query: () => 'users/me',
             providesTags: ["Auth"]
+        }),
+        changePassword: builder.mutation({
+            query: data => ({
+                url: "users/change_password",
+                method: "PUT",
+                body: data
+            }),
         })
     }),
 })
@@ -66,7 +73,8 @@ export const {
     useLoginMutation,
     useVerifyMutation,
     useLazyLogoutQuery,
-    useGetUserInfoQuery
+    useGetUserInfoQuery,
+    useChangePasswordMutation
 } = authApiSlice
 
 

@@ -1,3 +1,4 @@
+"use client"
 import { useLazyLogoutQuery } from '@/redux/features/authSlice'
 import { FiLogOut } from "react-icons/fi";
 import { useRouter } from "next/navigation";
@@ -7,9 +8,9 @@ export default function LogoutBtn() {
     const [trigger, { isFetching }] = useLazyLogoutQuery()
     async function handleLogoutBtn() {
         await trigger()
-        router.push("/")
+        router.push("/login")
     }
     return (
-        <button className='pointer-events-auto' disabled={isFetching} onClick={handleLogoutBtn}>{isFetching ? "Logging out..." : <FiLogOut />}</button>
+        <button className='mx-2 pointer-events-auto' disabled={isFetching} onClick={handleLogoutBtn}>{isFetching ? "Logging out..." : <FiLogOut />}</button>
     )
 }

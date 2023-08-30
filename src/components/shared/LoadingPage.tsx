@@ -1,10 +1,14 @@
 import React from 'react'
-import LoadingMsg from './LoadingMsg'
+import Image from 'next/image'
 
 export default function LoadingPage() {
     return (
         <main className='h-screen flex flex-col justify-center items-center'>
-            <LoadingMsg />
+            <Image
+                src="/md_logo.png"
+                width={100}
+                height={100}
+                alt="Logo" className='animate-spin' />
         </main>
     )
 }
