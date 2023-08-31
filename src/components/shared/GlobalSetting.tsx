@@ -11,8 +11,6 @@ export default function GlobalSetting() {
     function handleChangePasswordBtn() {
         setChangePasswordOpen(!changePasswordOpen)
     }
-
-
     return (
         <div className='relative  w-60'>
             <div className='p-2 flex flex-row justify-around'>

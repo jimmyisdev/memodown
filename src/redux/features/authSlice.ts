@@ -1,10 +1,8 @@
 import {
     createEntityAdapter,
-    createSelector
 } from "@reduxjs/toolkit";
 
 import { apiSlice } from "./apiSlice";
-import { AuthState, User } from "../../../types";
 
 type UserInfo = {
     email: string,
@@ -42,9 +40,11 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 body: data
             }),
         }),
-        logout: builder.query<{}, void>({
-            query: () => ({
+        logout: builder.mutation<{}, Object>({
+            query: data => ({
                 url: "users/logout",
+                method: "POST",
+                data: data
             })
         }),
         verify: builder.mutation({
@@ -72,7 +72,7 @@ export const {
     useSignupMutation,
     useLoginMutation,
     useVerifyMutation,
-    useLazyLogoutQuery,
+    useLogoutMutation,
     useGetUserInfoQuery,
     useChangePasswordMutation
 } = authApiSlice
