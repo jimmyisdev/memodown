@@ -1,21 +1,16 @@
-import { useCreateNotizMutation } from '@/redux/features/notizSlice';
-import React, { useEffect, useState } from 'react'
-import NotizTypeSelector from './NotizTypeSelector';
-import ErrorMsg from '../shared/ErrorMsg';
+"use client";
+import { useChangePasswordMutation } from "@/redux/features/authSlice";
+import { useEffect, useState } from "react";
 
-export default function NotizGenerator() {
+export default function ChangePassword() {
+    const [changePassword, { isLoading, isSuccess, isError, error, data }] = useChangePasswordMutation()
     const [showModal, setShowModal] = useState(false);
     const [errorMsg, setErrorMsg] = useState('')
-    const [inputData, setInputData] = useState({
-        type: '',
-        content: ''
-    })
-    const [createNotiz, { isLoading, isError, isSuccess }] = useCreateNotizMutation()
-    async function handleConfirmBtn() {
-        if (inputData.content.length === 0 || inputData.type.length === 0) return setErrorMsg("Input a valid value")
 
-        if (!!inputData.type && !!inputData.content) await createNotiz(inputData)
-    }
+    const [inputData, setInputData] = useState({
+        password: '',
+        passwordCheck: ''
+    })
     function handleOnChange(name: string, val: string) {
         if (!val.length) return
         setInputData({
@@ -23,12 +18,22 @@ export default function NotizGenerator() {
             [name]: val
         })
     }
+
+    async function handleConfirmBtn() {
+        if (inputData.password.length === 0 || inputData.passwordCheck.length === 0) return setErrorMsg("Input a valid value")
+        if (inputData.password != inputData.passwordCheck) return setErrorMsg("New password should be the same in both input field")
+        await changePassword({ password: inputData.password })
+        setInputData({
+            password: '',
+            passwordCheck: ''
+        })
+    }
     function handleCloseBtn() {
         setShowModal(false)
         setErrorMsg('')
         setInputData({
-            type: '',
-            content: ''
+            password: '',
+            passwordCheck: ''
         })
     }
     useEffect(() => {
@@ -39,7 +44,7 @@ export default function NotizGenerator() {
 
     return (
         <>
-            <button className='mx-2  px-4 py-2 pointer-events-auto' type="button" data-tooltip-target="create-note" onClick={() => setShowModal(true)}>Create Note</button>
+            <button className='mx-2  px-4 py-2 pointer-events-auto' type="button" data-tooltip-target="change-password" onClick={() => setShowModal(true)}>Change Password</button>
             {showModal ? (
                 <>
                     <div
@@ -51,22 +56,15 @@ export default function NotizGenerator() {
                                 {/*header*/}
                                 <div className="flex items-start justify-center p-5 border-b border-solid border-slate-200 rounded-t">
                                     <h3 className="text-3xl font-semibold text-center text-blue-900">
-                                        New Note
+                                        Change Password
                                     </h3>
                                 </div>
                                 {/*body*/}
                                 <div className="relative  flex flex-col  p-3">
-                                    <div className='w-auto flex flex-col justify-center'>
-                                        <section className='my-1'>
-                                            <NotizTypeSelector valGetter={handleOnChange} defaultVal='' />
-                                        </section>
-                                        <section className='my-1'>
-                                            <textarea id="id" name="content" className='p-2' onChange={(e) => handleOnChange('content', e.target.value)} placeholder='想先寫下來...' rows={10} cols={25} />
-                                        </section>
-                                        {isError && <ErrorMsg />}
-                                    </div>
+                                    <input className="p-3 mb-3 border-b-2 border-blue-900" name="password" disabled={isLoading} placeholder="Input new password" onChange={(e) => handleOnChange('password', e.target.value)} />
+                                    <input className="p-3 mb-3 border-b-2 border-blue-900" name="password" disabled={isLoading} placeholder="Input new password again" onChange={(e) => handleOnChange('passwordCheck', e.target.value)} />
                                     {!!errorMsg.length && <span className="text-red-500">{errorMsg}</span>}
-                                    {isSuccess && <span className="text-blue-900">You have created a new note</span>}
+                                    {isSuccess && <span className="text-blue-900">You have successfully updated your password</span>}
                                 </div>
                                 {/*footer*/}
                                 <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
@@ -77,7 +75,7 @@ export default function NotizGenerator() {
                                     >
                                         Close
                                     </button>
-                                    <button className='text-blue-900 font-medium text-center m-1 ' disabled={isLoading} onClick={handleConfirmBtn}>{isLoading ? "Loading " : "Confirm"}</button>
+                                    <button type="button" className='bg-blue-900  active:bg-blue-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 text-white  text-center cursor-pointer' disabled={isLoading} onClick={handleConfirmBtn}>{isLoading ? "Loading..." : "Confirm"}</button>
                                 </div>
                             </div>
                         </div>
@@ -85,5 +83,6 @@ export default function NotizGenerator() {
                     <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
                 </>
             ) : null}
-        </>)
+        </>
+    )
 }

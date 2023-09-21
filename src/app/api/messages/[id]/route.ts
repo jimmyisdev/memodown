@@ -7,7 +7,7 @@ connect()
 
 //id refers to the sender ID
 export async function GET(request: NextRequest) {
-    console.log("get frinet mesg")
+    console.log("get friend mesg")
     try {
         const friendId = request.url.slice(request.url.lastIndexOf('/') + 1)
         const { id } = await getDataFromToken(request);

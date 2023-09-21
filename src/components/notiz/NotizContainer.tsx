@@ -15,7 +15,7 @@ export default function NotizContainer() {
         <div className="p-1  w-96 h-92 overflow-scroll ">
             <NotizHead />
             <div className="overflow-scroll p-2">
-                {isFetching ? <LoadingMsg /> : !data?.data?.length && (<span>No notiz</span>)}
+                {isFetching ? <LoadingMsg /> : !data?.data?.length && (<span>No note</span>)}
                 {!isFetching && !!data?.data?.length && data.data.map((item: Partial<Notiz>) => {
                     return <NotizRow key={item._id} data={item} />
                 })}

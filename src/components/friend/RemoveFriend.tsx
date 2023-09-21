@@ -11,8 +11,8 @@ export default function RemoveFriend({ itemId = "" }: { itemId?: string }) {
         if (itemId) await removeFriend(itemId)
     }
     return (
-        <Tooltip message='Delete friend'>
-            <button className='text-blue-900 font-medium text-center cursor-pointer' disabled={isRemoveLoadin} onClick={() => handleRemoveBtn(itemId)}><AiFillDelete /></button>
-        </Tooltip>
+        // <Tooltip message='Delete friend'>
+        <button className='text-blue-900 font-medium text-center cursor-pointer' disabled={isRemoveLoadin} onClick={() => handleRemoveBtn(itemId)}><AiFillDelete /></button>
+        // </Tooltip>
     )
 }

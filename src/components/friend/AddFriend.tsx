@@ -12,6 +12,7 @@ export default function AddFriend() {
     const [errorMsg, setErrorMsg] = useState('')
     const [addFriend, { isSuccess, isLoading: isAddLoading, isError }] = useAddFriendMutation()
     async function handleAddBtn() {
+        if (email.length === 0) return setErrorMsg("Input valid email")
         try {
             if (email) await addFriend(email).unwrap()
             setEmail("")
@@ -22,11 +23,11 @@ export default function AddFriend() {
     }
 
     return (
-        <section className="mb-5">
-            <input className="p-4 mt-1" placeholder="Add friend email" onChange={(e) => setEmail(e.target.value)} />
-            <Tooltip message="Add friend">
+        <section className="mb-5 ">
+            <div className="flex flex-row justify-between align-middle ">
+                <input className="p-4 mt-1" placeholder="Add friend email" onChange={(e) => setEmail(e.target.value)} />
                 <button className='text-blue-900 font-medium text-center m-1 cursor-pointer' disabled={isAddLoading} onClick={handleAddBtn}>{isAddLoading ? "Loading " : <AiOutlineUserAdd />}</button>
-            </Tooltip>
+            </div>
             {isError && <ErrorMsg error={errorMsg} />}
         </section>)
 }

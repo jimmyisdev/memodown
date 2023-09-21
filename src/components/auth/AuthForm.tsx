@@ -28,7 +28,7 @@ export default function AuthForm({ type = '', isLoading = false, handler }: { ty
             <div className="flex flex-col">
                 {type.toLowerCase() === "signup" && <input className="p-4 mt-1" name="username" disabled={isLoading} placeholder="Input user name" onChange={(e) => handleOnChange('username', e.target.value)} />}
                 <input className="p-4 mt-1" name="email" disabled={isLoading} placeholder="example@gmail.com" onChange={(e) => handleOnChange('email', e.target.value)} />
-                <input className="p-4 mt-1" name="password" disabled={isLoading} placeholder="Input password" onChange={(e) => handleOnChange('password', e.target.value)} />
+                <input className="p-4 mt-1" name="password" disabled={isLoading} placeholder="password" onChange={(e) => handleOnChange('password', e.target.value)} />
                 <button className='text-blue-900 font-medium text-center m-3 cursor-pointer' disabled={isLoading} onClick={handleConfirmBtn}>{isLoading ? "isLoading" : "Confirm"}</button>
             </div>
         </div>

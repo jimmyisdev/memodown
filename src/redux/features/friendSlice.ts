@@ -50,3 +50,8 @@ export const {
     useAddFriendMutation,
     useRemoveFriendMutation
 } = friendApiSlice
+
+
+
+export const useuseGetFriendsState = friendApiSlice.endpoints.getFriends.useQueryState;
+
