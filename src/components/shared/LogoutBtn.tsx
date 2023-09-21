@@ -8,8 +8,10 @@ export default function LogoutBtn() {
     const router = useRouter();
     const [logout, { isLoading }] = useLogoutMutation()
     async function handleLogoutBtn() {
+        console.log("logout")
         await logout({})
         router.push("/login")
+        console.log("push logout")
     }
     return (
         <Tooltip message='Logout'>
