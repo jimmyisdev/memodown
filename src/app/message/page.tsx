@@ -27,7 +27,7 @@ export default function Page() {
         })
     }
     return (
-        <main className="flex min-h-screen flex-col items-center  p-24 ">
+        <main className="flex min-h-screen flex-col items-center p-24 ">
             <PageTopic topicText="Message" />
             <section className="flex flex-col">
                 <div>
