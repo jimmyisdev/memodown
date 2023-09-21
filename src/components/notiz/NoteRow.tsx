@@ -5,9 +5,9 @@ import { useDeleteNotizMutation } from "@/redux/features/notizSlice";
 import EditNote from "./EditNote";
 import { Notiz } from "../../../types";
 
-export default function NoteRow({ data }: { data: Notiz }) {
+export default function NoteRow({ data }: { data: Partial<Notiz> }) {
     const [deleteNotiz] = useDeleteNotizMutation()
-    const { type, content, _id } = data
+    const { type = "", content = "", _id = "" } = data
     const porcessedContent = useMemo(() => content.length < 10 ? content : content.slice(0, 10) + "...", [content])
     const handleDeleteBtn = useCallback(() => deleteNotiz(_id), [deleteNotiz])
     const handleCopyBtn = async () => {
