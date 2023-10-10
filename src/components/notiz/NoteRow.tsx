@@ -16,7 +16,7 @@ export default function NoteRow({ data }: { data: Partial<Notiz> }) {
     }
     return (
         <div className="flex flex-col mb-3">
-            <div className="flex flex-row justify-between border-b-2 border-gray-900">
+            <div className="flex flex-row justify-between border-b-2 border-gray-900 hover:font-bold">
                 <div className="flex flex-col justify-center items-center w-16 p-2 ">
                     <span className="w-full">
                         {type.toUpperCase()}
