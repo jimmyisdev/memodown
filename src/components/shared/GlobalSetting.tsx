@@ -1,6 +1,6 @@
 "use client"
-import ChangePassword from './ChangePassword'
-import LogoutBtn from './LogoutBtn'
+import ChangePassword from '../auth/ChangePassword'
+import LogoutBtn from '../auth/LogoutBtn'
 
 
 export default function GlobalSetting() {
