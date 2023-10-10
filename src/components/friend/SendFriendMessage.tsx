@@ -54,7 +54,7 @@ export default function SendFriendMessage({ sendTo = "" }: { sendTo: string }) {
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                 {/*header*/}
                                 <div className="flex items-start justify-center p-5 border-b border-solid border-slate-200 rounded-t">
-                                    <h3 className="text-3xl font-semibold text-center text-blue-900">
+                                    <h3 className="text-xl font-semibold text-center text-blue-900">
                                         Send to {sendTo}
                                     </h3>
                                 </div>

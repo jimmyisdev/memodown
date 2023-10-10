@@ -5,13 +5,12 @@ import FriendList from "@/components/friend/FriendList";
 import GlobalSetting from "@/components/shared/GlobalSetting";
 
 export default function Page() {
-
     return (
         <main className="flex min-h-screen flex-col items-center p-24" >
+            <SharedLink hrefLink="/" btnText="Back" />
             <PageTopic topicText="Friend" />
             <AddFriend />
             <FriendList />
-            <SharedLink hrefLink="/" btnText="Back" />
             <GlobalSetting />
         </main>
     )

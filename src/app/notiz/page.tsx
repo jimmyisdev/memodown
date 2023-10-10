@@ -15,10 +15,10 @@ export default function Page() {
                 <meta name="description" content='login page' />
             </head> */}
             <main className="flex min-h-screen flex-col items-center  p-24 ">
+                <SharedLink hrefLink="/" btnText="Back" />
                 <PageTopic topicText="Notiz" />
                 <NotizGenerator />
                 <NotizContainer />
-                <SharedLink hrefLink="/" btnText="Back" />
                 <GlobalSetting />
             </main >
         </>

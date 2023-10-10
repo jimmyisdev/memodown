@@ -1,14 +1,11 @@
 "use client";
-import { AiOutlineSend } from "react-icons/ai";
 import { BsThreeDots } from "react-icons/bs";
 
 import { useSendMessageMutation } from "@/redux/features/messageSlice";
 import React, { useCallback, useEffect, useState } from "react";
-import { AiFillEdit } from "react-icons/ai";
 import { useUpdateNotizMutation } from "@/redux/features/notizSlice";
 import NotizTypeSelector from "./NotizTypeSelector";
 import { Notiz } from "../../../types";
-import Tooltip from "../shared/Tooltip";
 import moment from "moment";
 
 
@@ -56,18 +53,18 @@ export default function EditNote({ data }: { data: Partial<Notiz> }) {
 
     return (
         <>
-            <button className='w-full m-1  text-blue-900 font-medium text-center cursor-pointer' type="button" data-tooltip-target="create-note" onClick={handleOpenModalBtn}><BsThreeDots /></button>
+            <button className='w-full m-1  hover:text-blue-900 font-medium text-center cursor-pointer' type="button" data-tooltip-target="create-note" onClick={handleOpenModalBtn}><BsThreeDots /></button>
             {showModal ? (
                 <>
                     <div
                         className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
                     >
-                        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                        <div className="relative w-auto my-6 mx-auto max-w-xl">
                             {/*content*/}
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                 {/*header*/}
                                 <div className="flex items-start justify-center p-5 border-b border-solid border-slate-200 rounded-t">
-                                    <h3 className="text-3xl font-semibold text-center text-blue-900">
+                                    <h3 className="text-xl font-semibold text-center text-blue-900">
                                         Edit Note
                                     </h3>
                                 </div>

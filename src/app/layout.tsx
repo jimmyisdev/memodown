@@ -2,6 +2,7 @@ import { ReduxProvider } from '@/redux/provider'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import GlobalSetting from '@/components/shared/GlobalSetting'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,15 +16,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  console.log(children)
+
   return (
     <html lang="en">
       <head>
         <link rel='icon' href='/md_logo.png' />
       </head>
       <body className={inter.className}>
-        <ReduxProvider>
-          {children}
-        </ReduxProvider>
+        <div >
+          <ReduxProvider>
+            {children}
+          </ReduxProvider>
+        </div>
       </body>
     </html>
   )

@@ -8,6 +8,7 @@ export default function LoadingPage() {
                 src="/md_logo.png"
                 width={100}
                 height={100}
+                priority={false}
                 alt="Logo" className='animate-spin' />
         </main>
     )

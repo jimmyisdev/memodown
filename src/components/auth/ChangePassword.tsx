@@ -1,6 +1,7 @@
 "use client";
 import { useChangePasswordMutation } from "@/redux/features/authSlice";
 import { useEffect, useState } from "react";
+import { MdPassword } from "react-icons/md";
 
 export default function ChangePassword() {
     const [changePassword, { isLoading, isSuccess, isError, error, data }] = useChangePasswordMutation()
@@ -44,7 +45,7 @@ export default function ChangePassword() {
 
     return (
         <>
-            <button className='mx-2  px-4 py-2 pointer-events-auto' type="button" data-tooltip-target="change-password" onClick={() => setShowModal(true)}>Change Password</button>
+            <button className='mx-2  px-4 py-2 pointer-events-auto hover:text-blue-900' type="button" data-tooltip-target="change-password" onClick={() => setShowModal(true)}><MdPassword /></button>
             {showModal ? (
                 <>
                     <div
@@ -55,7 +56,7 @@ export default function ChangePassword() {
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                 {/*header*/}
                                 <div className="flex items-start justify-center p-5 border-b border-solid border-slate-200 rounded-t">
-                                    <h3 className="text-3xl font-semibold text-center text-blue-900">
+                                    <h3 className="text-xl font-semibold text-center text-blue-900">
                                         Change Password
                                     </h3>
                                 </div>

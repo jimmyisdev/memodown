@@ -17,7 +17,7 @@ export default function Home() {
       {isFetchingUserInfo && <LoadingMsg />}
       {
         !isFetchingUserInfo && <>
-          <h1 className='font-black text-blue-900 text-3xl my-3  p-3'>Hi {data?.data?.username}</h1>
+          <h1 className='font-black text-blue-900 text-xl my-3  p-3'>Hi {data?.data?.username}</h1>
           <ul className='my-3  p-3'>
             <li className='font-extrabold mb-4 hover:text-blue-900 active:text-blue-900 focus:text-blue-900'>
               <Link href='/notiz'>Notiz</Link>
@@ -29,9 +29,9 @@ export default function Home() {
               <Link href='/message'>Message</Link>
             </li>
           </ul>
-          <GlobalSetting />
         </>
       }
+      <GlobalSetting />
     </main>
   )
 }

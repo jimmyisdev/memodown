@@ -5,7 +5,6 @@ import React, { useState } from 'react'
 import { generateErrorMsg } from '@/helpers/handelError';
 import { useAddFriendMutation } from '@/redux/features/friendSlice';
 import ErrorMsg from "../shared/ErrorMsg";
-import Tooltip from "../shared/Tooltip";
 
 export default function AddFriend() {
     const [email, setEmail] = useState('')

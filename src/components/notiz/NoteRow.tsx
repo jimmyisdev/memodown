@@ -29,8 +29,8 @@ export default function NoteRow({ data }: { data: Partial<Notiz> }) {
                 </div>
                 <div className="w-18 p-2 flex flex-row ">
                     <EditNote data={data} />
-                    <button className="w-full m-1 cursor-pointer" onClick={handleDeleteBtn}><AiFillDelete /></button>
-                    <button className="w-full m-1 cursor-pointer" onClick={handleCopyBtn}><AiFillCopy /></button>
+                    <button className="w-full m-1 cursor-pointer hover:text-blue-900" onClick={handleDeleteBtn}><AiFillDelete /></button>
+                    <button className="w-full m-1 cursor-pointer hover:text-blue-900" onClick={handleCopyBtn}><AiFillCopy /></button>
                 </div>
             </div>
         </div>
