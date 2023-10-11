@@ -1,8 +1,10 @@
-import { ReduxProvider } from '@/redux/provider'
-import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import './globals.css'
+import 'react-toastify/dist/ReactToastify.css';
+import { ReduxProvider } from '@/redux/provider'
 import GlobalSetting from '@/components/shared/GlobalSetting'
+import { ToastContainer, toast } from 'react-toastify';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +18,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  console.log(children)
 
   return (
     <html lang="en">
@@ -29,6 +30,19 @@ export default function RootLayout({
             {children}
           </ReduxProvider>
         </div>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
+
       </body>
     </html>
   )

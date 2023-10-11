@@ -2,12 +2,11 @@
 import { useChangePasswordMutation } from "@/redux/features/authSlice";
 import { useEffect, useState } from "react";
 import { MdPassword } from "react-icons/md";
+import { toast } from "react-toastify";
 
 export default function ChangePassword() {
     const [changePassword, { isLoading, isSuccess, isError, error, data }] = useChangePasswordMutation()
     const [showModal, setShowModal] = useState(false);
-    const [errorMsg, setErrorMsg] = useState('')
-
     const [inputData, setInputData] = useState({
         password: '',
         passwordCheck: ''
@@ -21,8 +20,8 @@ export default function ChangePassword() {
     }
 
     async function handleConfirmBtn() {
-        if (inputData.password.length === 0 || inputData.passwordCheck.length === 0) return setErrorMsg("Input a valid value")
-        if (inputData.password != inputData.passwordCheck) return setErrorMsg("New password should be the same in both input field")
+        if (inputData.password.length === 0 || inputData.passwordCheck.length === 0) return toast.warning("Input a valid value")
+        if (inputData.password != inputData.passwordCheck) return toast.warning("New password should be the same in both input fields")
         await changePassword({ password: inputData.password })
         setInputData({
             password: '',
@@ -31,21 +30,31 @@ export default function ChangePassword() {
     }
     function handleCloseBtn() {
         setShowModal(false)
-        setErrorMsg('')
         setInputData({
             password: '',
             passwordCheck: ''
         })
     }
+    function handlOpenBtn() {
+        setShowModal(true)
+    }
     useEffect(() => {
         if (isError) {
-            setErrorMsg("Error from the server")
+            toast.error('Error from the server!')
         }
     }, [isError])
+    useEffect(() => {
+        if (isSuccess) {
+            toast.success('You have successfully updated your new password!')
+            setShowModal(false)
+        }
+    }, [isSuccess])
+
+
 
     return (
         <>
-            <button className='mx-2  px-4 py-2 pointer-events-auto hover:text-blue-900' type="button" data-tooltip-target="change-password" onClick={() => setShowModal(true)}><MdPassword /></button>
+            <button className='mx-2  px-4 py-2 pointer-events-auto hover:text-blue-900' type="button" data-tooltip-target="change-password" onClick={handlOpenBtn}><MdPassword /></button>
             {showModal ? (
                 <>
                     <div
@@ -55,20 +64,18 @@ export default function ChangePassword() {
                             {/*content*/}
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                 {/*header*/}
-                                <div className="flex items-start justify-center p-5 border-b border-solid border-slate-200 rounded-t">
+                                <div className="flex items-start justify-center p-5   rounded-t">
                                     <h3 className="text-xl font-semibold text-center text-blue-900">
                                         Change Password
                                     </h3>
                                 </div>
                                 {/*body*/}
                                 <div className="relative  flex flex-col  p-3">
-                                    <input className="p-3 mb-3 border-b-2 border-blue-900" name="password" disabled={isLoading} placeholder="Input new password" onChange={(e) => handleOnChange('password', e.target.value)} />
-                                    <input className="p-3 mb-3 border-b-2 border-blue-900" name="password" disabled={isLoading} placeholder="Input new password again" onChange={(e) => handleOnChange('passwordCheck', e.target.value)} />
-                                    {!!errorMsg.length && <span className="text-red-500">{errorMsg}</span>}
-                                    {isSuccess && <span className="text-blue-900">You have successfully updated your password</span>}
+                                    <input className="p-3 mb-3 border-b-2 border-blue-900 border-transparent focus:outline-none" name="password" disabled={isLoading} placeholder="Input new password" onChange={(e) => handleOnChange('password', e.target.value)} />
+                                    <input className="p-3 mb-3 border-b-2 border-blue-900 border-transparent focus:outline-none" name="password" disabled={isLoading} placeholder="Input new password again" onChange={(e) => handleOnChange('passwordCheck', e.target.value)} />
                                 </div>
                                 {/*footer*/}
-                                <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                                <div className="flex items-center  p-6  rounded-b">
                                     <button
                                         className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                         type="button"

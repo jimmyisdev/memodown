@@ -6,8 +6,8 @@ import { useEffect } from "react";
 import AuthForm from "@/components/auth/AuthForm";
 import Cover from "@/components/shared/Cover";
 import AuthLink from "@/components/shared/SharedLink";
-import ErrorMsg from "@/components/shared/ErrorMsg";
 import LoadingMsg from "@/components/shared/LoadingMsg";
+import { toast } from "react-toastify";
 
 export default function Page() {
     const router = useRouter();
@@ -16,9 +16,15 @@ export default function Page() {
         if (isSuccess) {
             if (data?.data?.username && data?.data?.email) {
                 router.push("/login");
+                toast.info('Signup Success!')
             } else return
         }
     }, [isSuccess])
+    useEffect(() => {
+        if (isError) {
+            toast.error('Error occured!')
+        }
+    }, [isError])
 
     return (
         <main className="flex flex-row flex-wrap h-screen items-center justify-center ">
@@ -28,9 +34,9 @@ export default function Page() {
                 {!isLoading && (
                     <>
                         <AuthForm type="Signup" isLoading={isLoading} handler={signup} />
-                        <AuthLink hrefLink="/login" btnText="Member Login" />                    </>)
-                }
-                {isError && <ErrorMsg />}
+                        <AuthLink hrefLink="/login" btnText="Member Login" />
+                    </>
+                )}
             </div>
         </main>
     )

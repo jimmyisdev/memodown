@@ -3,17 +3,12 @@ import Link from 'next/link'
 import { useGetUserInfoQuery } from '@/redux/features/authSlice'
 import LoadingMsg from '@/components/shared/LoadingMsg'
 import GlobalSetting from '@/components/shared/GlobalSetting'
+
 export default function Home() {
   const { data, isFetching: isFetchingUserInfo } = useGetUserInfoQuery()
+
   return (
     <main className="flex min-h-screen flex-col items-center  p-24 ">
-      {/* 
-      <section >
-        <form className='m-3' method="POST" action="/upload" encType='multipart/form-data'>
-          <input type="file" name='image' />
-          <input type='submit' />
-        </form>
-      </section> */}
       {isFetchingUserInfo && <LoadingMsg />}
       {
         !isFetchingUserInfo && <>

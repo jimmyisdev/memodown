@@ -24,12 +24,12 @@ export default function AuthForm({ type = '', isLoading = false, handler }: { ty
     }
     return (
         <div className="flex flex-col border border-cyan-950s p-4 mb-2">
-            <h1>{isLoading ? "isLoading" : type.toUpperCase()}</h1>
+            <h1 className="text-xl font-medium text-center">{isLoading ? "isLoading" : type.toUpperCase()}</h1>
             <div className="flex flex-col">
-                {type.toLowerCase() === "signup" && <input className="p-4 mt-1" name="username" disabled={isLoading} placeholder="Input user name" onChange={(e) => handleOnChange('username', e.target.value)} />}
-                <input className="p-4 mt-1" name="email" disabled={isLoading} placeholder="example@gmail.com" onChange={(e) => handleOnChange('email', e.target.value)} />
-                <input className="p-4 mt-1" name="password" disabled={isLoading} placeholder="password" onChange={(e) => handleOnChange('password', e.target.value)} />
-                <button className='text-blue-900 font-medium text-center m-3 cursor-pointer' disabled={isLoading} onClick={handleConfirmBtn}>{isLoading ? "isLoading" : "Confirm"}</button>
+                {type.toLowerCase() === "signup" && <input className="p-4 mt-1 border-transparent focus:outline-none" name="username" disabled={isLoading} placeholder="Input user name" onChange={(e) => handleOnChange('username', e.target.value)} />}
+                <input className="p-4 mt-1 border-transparent focus:outline-none" name="email" disabled={isLoading} placeholder="example@gmail.com" onChange={(e) => handleOnChange('email', e.target.value)} />
+                <input className="p-4 mt-1 border-transparent focus:outline-none" name="password" disabled={isLoading} placeholder="password" onChange={(e) => handleOnChange('password', e.target.value)} />
+                <button className='hover:text-blue-900 font-medium text-center m-3 cursor-pointer' disabled={isLoading} onClick={handleConfirmBtn}>{isLoading ? "isLoading" : "Confirm"}</button>
             </div>
         </div>
 

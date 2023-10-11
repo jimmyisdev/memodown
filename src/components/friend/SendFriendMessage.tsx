@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { AiOutlineSend } from "react-icons/ai";
 import { useSendMessageMutation } from "@/redux/features/messageSlice";
+import { toast } from 'react-toastify';
 
 export default function SendFriendMessage({ sendTo = "" }: { sendTo: string }) {
     const [showModal, setShowModal] = useState(false);
-    const [errorMsg, setErrorMsg] = useState('')
     const [sendMessage, { isLoading, isError, isSuccess, reset }] = useSendMessageMutation()
     const [inputData, setInputData] = useState({
         sentTo: sendTo,
@@ -15,8 +15,8 @@ export default function SendFriendMessage({ sendTo = "" }: { sendTo: string }) {
         setShowModal(true)
     }
     async function handleConfirmBtn() {
-        if (inputData.content.length === 0 || inputData.sentTo.length === 0) return setErrorMsg("input valid value")
         if (!!inputData.sentTo && !!inputData.content) await sendMessage(inputData)
+        else return toast("Please input valid value")
     }
     function handleOnChange(name: string, val: string) {
         console.log(val)
@@ -28,18 +28,25 @@ export default function SendFriendMessage({ sendTo = "" }: { sendTo: string }) {
     }
     function handleCloseBtn() {
         setShowModal(false)
-        setErrorMsg('')
         setInputData({
             sentTo: '',
             content: ''
         })
         reset()
     }
+
+
     useEffect(() => {
         if (isError) {
-            setErrorMsg("Error from the server")
+            toast.error('Error occured!')
         }
     }, [isError])
+    useEffect(() => {
+        if (isSuccess) {
+            toast.success('You have successfully sent message!')
+            setShowModal(false)
+        }
+    }, [isSuccess])
 
     return (
         <>
@@ -63,11 +70,9 @@ export default function SendFriendMessage({ sendTo = "" }: { sendTo: string }) {
                                     <div className='w-auto flex flex-col justify-center'>
 
                                         <div className="flex flex-col justify-center items-center m-2 overflow-scroll">
-                                            <textarea name="message" className='p-2' id="message" cols={30} rows={10} placeholder="write down..." onChange={(e) => handleOnChange('content', e.target.value)} />
+                                            <textarea name="message" className='p-2 border-transparent focus:outline-none' id="message" cols={30} rows={10} placeholder="write down..." onChange={(e) => handleOnChange('content', e.target.value)} />
                                         </div>
                                     </div>
-                                    {!!errorMsg.length && <span className="text-red-500">{errorMsg}</span>}
-                                    {isSuccess && <span className="text-blue-900">You have created a new note</span>}
                                 </div>
                                 {/*footer*/}
                                 <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">

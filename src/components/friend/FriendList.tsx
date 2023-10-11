@@ -13,9 +13,9 @@ export default function FriendList() {
     const { data: friendsList, isLoading } = useGetFriendsQuery()
 
     return (
-        <section className="mb-5">
+        <section className="w-96 h-92 ">
             {isLoading ? <LoadingMsg /> : !friendsList?.data?.length && (<h1>You do not have frient</h1>)}
-            <ul>
+            <div className="overflow-scroll p-2 h-64 ">
                 {!isLoading && !!friendsList?.data?.length && friendsList.data.map((item: User) => {
                     return <li key={item._id} className=' flex flex-row justify-between align-middle  font-extrabold mb-4 hover:text-blue-900 active:text-blue-900 focus:text-blue-900'>
                         {item.username}
@@ -35,6 +35,6 @@ export default function FriendList() {
                     </li>
                 }
                 )}
-            </ul>
+            </div>
         </section >)
 }
