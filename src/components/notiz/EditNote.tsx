@@ -59,7 +59,7 @@ export default function EditNote({ data }: { data: Partial<Notiz> }) {
 
     return (
         <>
-            <button className='w-full m-1  hover:text-blue-900 font-medium text-center cursor-pointer' type="button" data-tooltip-target="create-note" onClick={handleOpenModalBtn}><BsThreeDots /></button>
+            <button className='w-full m-1  hover:text-blue-900 font-medium text-center cursor-pointer ease-linear transition-all duration-250' type="button" data-tooltip-target="create-note" onClick={handleOpenModalBtn}><BsThreeDots /></button>
             {showModal ? (
                 <>
                     <div
@@ -76,7 +76,7 @@ export default function EditNote({ data }: { data: Partial<Notiz> }) {
                                 </div>
                                 {/*body*/}
                                 <div className="relative  flex flex-col  p-3">
-                                    <div className="w-full  bg-gray-100 ">
+                                    <div className="w-full ">
                                         <div className="flex flex-col m-2">
                                             <NotizTypeSelector valGetter={handleOnChange} defaultVal={type} />
                                         </div>
@@ -89,15 +89,15 @@ export default function EditNote({ data }: { data: Partial<Notiz> }) {
                                     </div>
                                 </div>
                                 {/*footer*/}
-                                <div className="flex items-center justify-center p-6 border-t border-solid border-slate-200 rounded-b">
+                                <div className="  flex flex-row justify-around border-t pt-2 ">
                                     <button
-                                        className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                        className="text-red-500 background-transparent font-medium text-center  px-6 py-2 hover:font-bold ease-linear transition-all duration-150"
                                         type="button"
                                         onClick={handleCloseBtn}
                                     >
                                         Close
                                     </button>
-                                    <button className="text-blue-900 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" disabled={isLoading} onClick={handleUpdateBtn}>{isLoading ? "Loading " : "Update"}</button>
+                                    <button className='text-blue-900 font-medium text-center  px-6 py-2 hover:font-bold ease-linear transition-all duration-150' disabled={isLoading} onClick={handleUpdateBtn}>{isLoading ? "Loading " : "Update"}</button>
                                 </div>
                             </div>
                         </div>

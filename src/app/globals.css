@@ -15,3 +15,52 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+/* note */
+.joke-l {
+  color: #5BC0EB;
+}
+
+.joke-d {
+  color: #1478a3;
+}
+
+.greet-l {
+  color: #FDE74C;
+}
+
+.greet-d {
+  color: #cab302;
+}
+
+.memo-l {
+  color: #526760;
+}
+
+.memo-d {
+  color: #2d3935;
+}
+
+.idea-l {
+  color: #897659;
+}
+
+.idea-d {
+  color: #312b20;
+}
+
+.cost-l {
+  color: #c08552;
+}
+
+.cost-d {
+  color: #694526;
+}
+
+.other-l {
+  color: #555c8b;
+}
+
+.other-d {
+  color: #25283D;
+}

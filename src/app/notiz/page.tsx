@@ -11,7 +11,7 @@ export default function Page() {
         <>
             <main className="flex min-h-screen flex-col items-center  p-24 ">
                 <SharedLink hrefLink="/" btnText="Back" />
-                <PageTopic topicText="Notiz" />
+                <PageTopic topicText="Note" />
                 <NotizGenerator />
                 <NotizContainer />
                 <GlobalSetting />

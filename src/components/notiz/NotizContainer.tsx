@@ -9,10 +9,10 @@ import NoteRow from "./NoteRow";
 export default function NotizContainer() {
     const { data, isFetching } = useGetNotizsQuery()
     return (
-        <div className="w-96 h-92  bg-blue-100">
+        <div className="w-96 h-92  ">
             <NoteHead />
             <div className="overflow-scroll p-2 h-64 ">
-                {isFetching ? <LoadingMsg /> : !data?.data?.length && (<span>No note</span>)}
+                {isFetching ? <LoadingMsg /> : !data?.data?.length && (<span>You do not have a note</span>)}
                 {!isFetching && !!data?.data?.length && data.data.map((item: Partial<Notiz>) => {
                     return <NoteRow key={item._id} data={item} />
                 })}
