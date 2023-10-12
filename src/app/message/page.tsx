@@ -1,14 +1,14 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { User } from "../../../types";
 import PageTopic from "@/components/shared/PageTopic";
 import SharedLink from "@/components/shared/SharedLink";
 import { useGetFriendsQuery } from "@/redux/features/friendSlice";
-import { User } from "../../../types";
-import { useEffect, useState } from "react";
 import { useSendMessageMutation } from "@/redux/features/messageSlice";
 import GlobalSetting from "@/components/shared/GlobalSetting";
-import { toast } from "react-toastify";
-import LoadingMsg from "@/components/shared/LoadingMsg";
+import LoadingStatus from "@/components/shared/LoadingStatus";
 
 export default function Page() {
     const { data: friendsList, isFetching } = useGetFriendsQuery()
@@ -28,7 +28,6 @@ export default function Page() {
             [name]: val
         })
     }
-
     useEffect(() => {
         if (isError) {
             toast.error('Error occured!')
@@ -44,8 +43,7 @@ export default function Page() {
         <main className="flex min-h-screen flex-col items-center p-24 ">
             <SharedLink hrefLink="/" btnText="Back" />
             <PageTopic topicText="Message" />
-            {isFetching && <LoadingMsg />}
-
+            {isFetching && <LoadingStatus />}
             {
                 !isFetching && (
                     <section className="flex flex-col">
@@ -60,7 +58,7 @@ export default function Page() {
                         <div className="flex flex-col justify-center items-center m-2 overflow-scroll">
                             <textarea name="message" className='p-2 border-transparent focus:outline-none' id="message" cols={30} rows={10} placeholder="write down..." onChange={(e) => handleOnChange('content', e.target.value)} />
                         </div>
-                        <button className='hover:text-blue-900 font-medium text-center m-1 ' disabled={isLoading} onClick={handleConfirmBtn}>{isLoading ? "Loading..." : "Send"}</button>
+                        <button className='hover:text-blue-900 hover:font-bold text-center m-1 ease-linear transition-all duration-150' disabled={isLoading} onClick={handleConfirmBtn}>{isLoading ? "Loading..." : "Send"}</button>
                     </section>
                 )
             }

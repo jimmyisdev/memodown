@@ -1,8 +1,6 @@
-import LoadingPage from '@/components/shared/LoadingPage'
-import React from 'react'
-
+import LoadingStatus from '@/components/shared/LoadingStatus'
 export default function loading() {
     return (
-        <LoadingPage />
+        <LoadingStatus />
     )
 }

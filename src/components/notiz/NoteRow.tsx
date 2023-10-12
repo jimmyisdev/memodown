@@ -34,7 +34,7 @@ export default function NoteRow({ data }: { data: Partial<Notiz> }) {
                         {`${porcessedContent}`}
                     </span>
                 </div>
-                <div className="w-18  flex flex-row ">
+                <div className="w-18  flex flex-row hover:font-medium">
                     <EditNote data={data} />
                     <button className="w-full m-1 cursor-pointer hover:text-blue-900 ease-linear transition-all duration-250" onClick={handleDeleteBtn}><AiFillDelete /></button>
                     <button className="w-full m-1 cursor-pointer hover:text-blue-900 ease-linear transition-all duration-250" onClick={handleCopyBtn}><AiFillCopy /></button>

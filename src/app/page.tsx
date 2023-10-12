@@ -1,14 +1,23 @@
 'use client'
 import Link from 'next/link'
+import { useEffect } from 'react'
+import { useRouter } from "next/navigation";
 import { useGetUserInfoQuery } from '@/redux/features/authSlice'
-import LoadingMsg from '@/components/shared/LoadingMsg'
+import LoadingStatus from '@/components/shared/LoadingStatus'
 import GlobalSetting from '@/components/shared/GlobalSetting'
 
+
 export default function Home() {
-  const { data, isFetching: isFetchingUserInfo } = useGetUserInfoQuery()
+  const router = useRouter();
+  const { data, isFetching: isFetchingUserInfo, isError } = useGetUserInfoQuery()
+  useEffect(() => {
+    if (isError) router.push("/login");
+    return
+  }, [isError])
+
   return (
     <main className="flex min-h-screen flex-col items-center  p-24 ">
-      {isFetchingUserInfo && <LoadingMsg />}
+      {isFetchingUserInfo && <LoadingStatus />}
       {
         !isFetchingUserInfo && <>
           <h1 className='font-black text-blue-900 text-xl my-3  p-3'>Hi {data?.data?.username} !</h1>

@@ -66,15 +66,12 @@ export default function EditNote({ data }: { data: Partial<Notiz> }) {
                         className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
                     >
                         <div className="relative w-auto my-6 mx-auto max-w-xl">
-                            {/*content*/}
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                                {/*header*/}
-                                <div className="flex items-start justify-center p-5 border-b border-solid border-slate-200 rounded-t">
+                                <div className="flex items-start justify-center p-5 ">
                                     <h3 className="text-xl font-semibold text-center text-blue-900">
                                         Edit Note
                                     </h3>
                                 </div>
-                                {/*body*/}
                                 <div className="relative  flex flex-col  p-3">
                                     <div className="w-full ">
                                         <div className="flex flex-col m-2">
@@ -83,13 +80,12 @@ export default function EditNote({ data }: { data: Partial<Notiz> }) {
                                         <div className="flex flex-col justify-center items-center m-2 overflow-scroll">
                                             <textarea id="id" name="w3review" className='p-2 outline-none focus:outline-none' placeholder='Notiz Content' rows={5} cols={35} defaultValue={content} onChange={(e) => handleOnChange('content', e.target.value)} />
                                         </div>
-                                        <div className="flex flex-flex justify-around items-center  m-2">
-                                            <span >Created on {moment(createdAt).format()}</span>
+                                        <div className="flex flex-col  items-end  m-2 text-gray-400">
+                                            <span >Created on {moment(createdAt).format("YYYY-MM-DD HH:mm")}</span>
                                         </div>
                                     </div>
                                 </div>
-                                {/*footer*/}
-                                <div className="  flex flex-row justify-around border-t pt-2 ">
+                                <div className="flex flex-row justify-around pt-2 ">
                                     <button
                                         className="text-red-500 background-transparent font-medium text-center  px-6 py-2 hover:font-bold ease-linear transition-all duration-150"
                                         type="button"

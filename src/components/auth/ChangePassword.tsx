@@ -5,7 +5,7 @@ import { MdPassword } from "react-icons/md";
 import { toast } from "react-toastify";
 
 export default function ChangePassword() {
-    const [changePassword, { isLoading, isSuccess, isError, error, data }] = useChangePasswordMutation()
+    const [changePassword, { isLoading, isSuccess, isError }] = useChangePasswordMutation()
     const [showModal, setShowModal] = useState(false);
     const [inputData, setInputData] = useState({
         password: '',
@@ -62,14 +62,14 @@ export default function ChangePassword() {
                     >
                         <div className="relative w-auto my-6 mx-auto max-w-3xl">
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                                <div className="flex items-start justify-center p-5   rounded-t">
+                                <div className="flex items-start justify-center p-5">
                                     <h3 className="text-xl font-semibold text-center text-blue-900">
                                         Change Password
                                     </h3>
                                 </div>
                                 <div className="relative  flex flex-col  p-3">
-                                    <input className="p-3 mb-3 border-b-2 border-blue-900 border-transparent focus:outline-none" name="password" disabled={isLoading} placeholder="Input new password" onChange={(e) => handleOnChange('password', e.target.value)} />
-                                    <input className="p-3 mb-3 border-b-2 border-blue-900 border-transparent focus:outline-none" name="password" disabled={isLoading} placeholder="Input new password again" onChange={(e) => handleOnChange('passwordCheck', e.target.value)} />
+                                    <input className="p-3 mb-3 border-b-2 border-blue-900 border-transparent focus:outline-none" name="password" disabled={isLoading} type="password" placeholder="Input new password" onChange={(e) => handleOnChange('password', e.target.value)} />
+                                    <input className="p-3 mb-3 border-b-2 border-blue-900 border-transparent focus:outline-none" name="password" disabled={isLoading} type="password" placeholder="Input new password again" onChange={(e) => handleOnChange('passwordCheck', e.target.value)} />
                                 </div>
                                 <div className="flex items-center  p-6  rounded-b">
                                     <button

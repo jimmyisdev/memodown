@@ -1,13 +1,13 @@
 "use client";
 
-import { useLoginMutation } from "@/redux/features/authSlice";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 import { useEffect } from "react";
+import { useLoginMutation } from "@/redux/features/authSlice";
 import AuthForm from "@/components/auth/AuthForm";
 import Cover from "@/components/shared/Cover";
 import SharedLink from "@/components/shared/SharedLink";
-import LoadingMsg from "@/components/shared/LoadingMsg";
-import { toast } from "react-toastify";
+import LoadingStatus from "@/components/shared/LoadingStatus";
 
 export default function Page() {
     const router = useRouter();
@@ -29,7 +29,7 @@ export default function Page() {
         <main className="flex flex-row flex-wrap h-screen items-center justify-center bg-red">
             <Cover />
             <div className="flex flex-col m-5">
-                {isLoading && <LoadingMsg />}
+                {isLoading && <LoadingStatus />}
                 {!isLoading && (
                     <>
                         <AuthForm type='Login' isLoading={isLoading} handler={login} />

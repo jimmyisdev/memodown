@@ -38,6 +38,10 @@ export default function NotizGenerator() {
         if (isSuccess) {
             toast.success('You have created a new note!')
             setShowModal(false)
+            setInputData({
+                type: '',
+                content: ''
+            })
         }
     }, [isSuccess])
 
@@ -51,7 +55,7 @@ export default function NotizGenerator() {
                     >
                         <div className="relative w-auto my-6 mx-auto max-w-xl">
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                                <div className="flex items-start justify-center p-5 rounded-t">
+                                <div className="flex items-start justify-center p-5">
                                     <h3 className="text-xl font-semibold text-center text-blue-900">
                                         Add Note
                                     </h3>
@@ -66,7 +70,7 @@ export default function NotizGenerator() {
                                         </section>
                                     </div>
                                 </div>
-                                <div className="  flex flex-row justify-around border-t pt-2 ">
+                                <div className="flex flex-row justify-around pt-2">
                                     <button
                                         className="text-red-500 background-transparent font-medium text-center  px-6 py-2 hover:font-bold ease-linear transition-all duration-150"
                                         type="button"
