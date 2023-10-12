@@ -8,6 +8,7 @@ export default function Cover() {
                 width={200}
                 height={200}
                 alt="Logo"
+                priority={true}
             />
             <div>
                 <h1 className="text-2xl mb-2 font-extrabold">Memodown</h1>

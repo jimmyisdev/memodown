@@ -17,50 +17,50 @@
 }
 
 /* note */
-.joke-l {
+.joke {
   color: #5BC0EB;
 }
 
-.joke-d {
+.joke:hover {
   color: #1478a3;
 }
 
-.greet-l {
+.greet {
   color: #FDE74C;
 }
 
-.greet-d {
+.greet:hover {
   color: #cab302;
 }
 
-.memo-l {
+.memo {
   color: #526760;
 }
 
-.memo-d {
+.memo:hover {
   color: #2d3935;
 }
 
-.idea-l {
+.idea {
   color: #897659;
 }
 
-.idea-d {
+.idea:hover {
   color: #312b20;
 }
 
-.cost-l {
+.cost {
   color: #c08552;
 }
 
-.cost-d {
+.cost:hover {
   color: #694526;
 }
 
-.other-l {
+.other {
   color: #555c8b;
 }
 
-.other-d {
+.other:hover {
   color: #25283D;
 }

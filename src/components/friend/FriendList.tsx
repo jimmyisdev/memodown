@@ -16,8 +16,8 @@ export default function FriendList() {
             {isLoading ? <LoadingStatus /> : !friendsList?.data?.length && (<h1>You do not have friend</h1>)}
             <div className="overflow-scroll p-2 h-64 ">
                 {!isLoading && !!friendsList?.data?.length && friendsList.data.map((item: User) => {
-                    return <li key={item._id} className=' flex flex-row justify-between align-middle mb-4 hover:text-blue-900 hover:font-bold ease-linear transition-all duration-250'>
-                        {item.username}
+                    return <li key={item._id} className=' flex flex-row justify-between align-middle mb-4 '>
+                        <h1 className=' hover:font-bold ease-linear transition-all duration-250'>{item.username}</h1>
                         <ul className='flex flex-row justify-end align-middle   w-40'>
                             <li className='mx-2'>
                                 <Link className='text-blue-900 font-medium text-center cursor-pointer' href={`/friend/${item._id}`}>

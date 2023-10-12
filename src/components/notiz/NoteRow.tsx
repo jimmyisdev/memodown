@@ -25,7 +25,7 @@ export default function NoteRow({ data }: { data: Partial<Notiz> }) {
         <div className="flex flex-col mb-3 ">
             <div className={`flex flex-row justify-between p-2 border-b-2 border-gray-900  hover:font-bold ease-linear transition-all duration-250`}>
                 <div className="flex flex-col justify-center items-center w-16  ">
-                    <span className={`w-full ${type}-l   hover:${type}-d ease-linear transition-all duration-250`} >
+                    <span className={`w-full ${type}  ease-linear transition-all duration-250`} >
                         {type.toUpperCase()}
                     </span>
                 </div>

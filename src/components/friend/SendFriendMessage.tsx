@@ -63,7 +63,7 @@ export default function SendFriendMessage({ friendId = "", friendName = "" }: { 
                                 <div className="relative  flex flex-col  p-3">
                                     <div className='w-auto flex flex-col justify-center'>
                                         <div className="flex flex-col justify-center items-center m-2 overflow-scroll">
-                                            <textarea name="message" className='p-2 border-transparent focus:outline-none' id="message" cols={30} rows={10} placeholder={`tell ${friendName}...`} onChange={(e) => handleOnChange('content', e.target.value)} />
+                                            <textarea name="message" className='p-2  border-transparent focus:outline-none' id="message" cols={30} rows={10} placeholder={`tell ${friendName}...`} onChange={(e) => handleOnChange('content', e.target.value)} />
                                         </div>
                                     </div>
                                 </div>
