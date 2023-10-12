@@ -1,14 +1,14 @@
 import Image from "next/image";
-
+import logo from "../../../public/md_logo.png";
 export default function Cover() {
     return (
         <div>
             <Image
-                src="/md_logo.png"
+                src={logo}
                 width={200}
                 height={200}
                 alt="Logo"
-                priority={true}
+                placeholder="blur"
             />
             <div>
                 <h1 className="text-2xl mb-2 font-extrabold">Memodown</h1>
