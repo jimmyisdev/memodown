@@ -1,21 +1,19 @@
 "use client"
-
-import { useGetFriendsQuery } from '@/redux/features/friendSlice'
 import React from 'react'
 import Link from 'next/link'
-import { User } from "../../../types";
-import RemoveFriend from './RemoveFriend';
-import LoadingStatus from '../shared/LoadingStatus';
-import SendFriendMessage from './SendFriendMessage';
 import { AiOutlineMessage } from "react-icons/ai";
+import { User } from "../../../types";
+import { useGetFriendsQuery } from '@/redux/features/friendSlice'
+import RemoveFriend from '@/components/friend/RemoveFriend';
+import LoadingStatus from '@/components/shared/LoadingStatus';
+import SendFriendMessage from '@/components/friend/SendFriendMessage';
 
 export default function FriendList() {
     const { data: friendsList, isLoading } = useGetFriendsQuery()
-    console.log("friend list", friendsList)
-
+    console.log(friendsList)
     return (
         <section className="w-96 h-92 ">
-            {isLoading ? <LoadingStatus /> : !friendsList?.data?.length && (<h1>You do not have frient</h1>)}
+            {isLoading ? <LoadingStatus /> : !friendsList?.data?.length && (<h1>You do not have friend</h1>)}
             <div className="overflow-scroll p-2 h-64 ">
                 {!isLoading && !!friendsList?.data?.length && friendsList.data.map((item: User) => {
                     return <li key={item._id} className=' flex flex-row justify-between align-middle mb-4 hover:text-blue-900 hover:font-bold ease-linear transition-all duration-250'>

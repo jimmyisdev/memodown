@@ -1,12 +1,11 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { User } from "../../../types";
-import PageTopic from "@/components/shared/PageTopic";
-import SharedLink from "@/components/shared/SharedLink";
 import { useGetFriendsQuery } from "@/redux/features/friendSlice";
 import { useSendMessageMutation } from "@/redux/features/messageSlice";
+import PageTopic from "@/components/shared/PageTopic";
+import SharedLink from "@/components/shared/SharedLink";
 import GlobalSetting from "@/components/shared/GlobalSetting";
 import LoadingStatus from "@/components/shared/LoadingStatus";
 

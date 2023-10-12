@@ -1,10 +1,9 @@
 "use client";
-
-import { AiOutlineUserAdd } from "react-icons/ai";
 import React, { useEffect, useState, useRef } from 'react'
+import { toast } from "react-toastify";
+import { AiOutlineUserAdd } from "react-icons/ai";
 import { generateErrorMsg } from '@/helpers/handelError';
 import { useAddFriendMutation } from '@/redux/features/friendSlice';
-import { toast } from "react-toastify";
 
 export default function AddFriend() {
     const [email, setEmail] = useState('')

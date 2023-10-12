@@ -1,13 +1,12 @@
 "use client";
-
-import { useSignupMutation } from "@/redux/features/authSlice";
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { useSignupMutation } from "@/redux/features/authSlice";
 import AuthForm from "@/components/auth/AuthForm";
 import Cover from "@/components/shared/Cover";
 import AuthLink from "@/components/shared/SharedLink";
 import LoadingStatus from "@/components/shared/LoadingStatus";
-import { toast } from "react-toastify";
 
 export default function Page() {
     const router = useRouter();

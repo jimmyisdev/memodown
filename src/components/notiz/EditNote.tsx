@@ -1,13 +1,11 @@
 "use client";
-import { BsThreeDots } from "react-icons/bs";
-
-import { useSendMessageMutation } from "@/redux/features/messageSlice";
 import React, { useCallback, useEffect, useState } from "react";
-import { useUpdateNotizMutation } from "@/redux/features/notizSlice";
-import NotizTypeSelector from "./NotizTypeSelector";
-import { Notiz } from "../../../types";
 import moment from "moment";
 import { toast } from "react-toastify";
+import { BsThreeDots } from "react-icons/bs";
+import { Notiz } from "../../../types";
+import { useUpdateNotizMutation } from "@/redux/features/notizSlice";
+import NotizTypeSelector from "@/components/notiz/NotizTypeSelector";
 
 
 export default function EditNote({ data }: { data: Partial<Notiz> }) {

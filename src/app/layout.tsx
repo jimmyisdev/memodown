@@ -1,13 +1,10 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import 'react-toastify/dist/ReactToastify.css';
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import { ReduxProvider } from '@/redux/provider'
-import GlobalSetting from '@/components/shared/GlobalSetting'
-import { ToastContainer, toast } from 'react-toastify';
-
+import { ToastContainer } from 'react-toastify';
 const inter = Inter({ subsets: ['latin'] })
-
 export const metadata: Metadata = {
   title: 'Memodown',
   description: 'Best Memo App',
@@ -18,7 +15,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
   return (
     <html lang="en">
       <head>

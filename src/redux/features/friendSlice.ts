@@ -10,6 +10,10 @@ type FriendsResponse = {
     data: User[],
     error?: string
 }
+type FriendUserName = {
+    data: string,
+    error?: string
+}
 
 export const friendApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
@@ -23,6 +27,12 @@ export const friendApiSlice = apiSlice.injectEndpoints({
                     ] : [
                         { type: "Friends", id: "LIST" }
                     ]
+        }),
+        getFriendUserNameById: builder.query<FriendUserName, string>({
+            query: (id) => ({
+                url: `friends/${id}`,
+                method: "GET",
+            }),
         }),
         addFriend: builder.mutation<Partial<User>, string>({
             query: email => ({
@@ -48,7 +58,8 @@ export const friendApiSlice = apiSlice.injectEndpoints({
 export const {
     useGetFriendsQuery,
     useAddFriendMutation,
-    useRemoveFriendMutation
+    useRemoveFriendMutation,
+    useGetFriendUserNameByIdQuery
 } = friendApiSlice
 
 

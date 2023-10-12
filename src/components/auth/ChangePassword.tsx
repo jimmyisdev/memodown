@@ -1,8 +1,8 @@
 "use client";
-import { useChangePasswordMutation } from "@/redux/features/authSlice";
 import { useEffect, useState } from "react";
-import { MdPassword } from "react-icons/md";
 import { toast } from "react-toastify";
+import { MdPassword } from "react-icons/md";
+import { useChangePasswordMutation } from "@/redux/features/authSlice";
 
 export default function ChangePassword() {
     const [changePassword, { isLoading, isSuccess, isError }] = useChangePasswordMutation()

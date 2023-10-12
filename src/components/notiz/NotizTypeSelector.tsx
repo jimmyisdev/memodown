@@ -1,5 +1,5 @@
-import { notizTypeSelection } from '@/const';
 import React from 'react'
+import { notizTypeSelection } from '@/helpers/const'
 
 export default function NotizTypeSelector({ valGetter, defaultVal = "" }: { valGetter: (name: string, val: string) => void, defaultVal: string | undefined }) {
     return (

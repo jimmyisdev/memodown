@@ -1,5 +1,4 @@
 "use client";
-
 import NotizContainer from "@/components/notiz/NotizContainer";
 import NotizGenerator from "@/components/notiz/NotizGenerator";
 import SharedLink from "@/components/shared/SharedLink";

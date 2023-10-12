@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { AiOutlineSend } from "react-icons/ai";
-import { useSendMessageMutation } from "@/redux/features/messageSlice";
 import { toast } from 'react-toastify';
+import { useSendMessageMutation } from "@/redux/features/messageSlice";
 
 export default function SendFriendMessage({ friendId = "", friendName = "" }: { friendId: string, friendName: string }) {
     const [showModal, setShowModal] = useState(false);
@@ -33,8 +33,6 @@ export default function SendFriendMessage({ friendId = "", friendName = "" }: { 
         })
         reset()
     }
-
-
     useEffect(() => {
         if (isError) {
             toast.error('Error occured!')

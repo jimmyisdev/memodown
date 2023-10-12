@@ -6,7 +6,6 @@ import { useGetUserInfoQuery } from '@/redux/features/authSlice'
 import LoadingStatus from '@/components/shared/LoadingStatus'
 import GlobalSetting from '@/components/shared/GlobalSetting'
 
-
 export default function Home() {
   const router = useRouter();
   const { data, isFetching: isFetchingUserInfo, isError } = useGetUserInfoQuery()

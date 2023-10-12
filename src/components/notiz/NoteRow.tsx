@@ -1,10 +1,10 @@
 "use client";
 import React, { useCallback, useEffect, useMemo } from "react";
+import { toast } from "react-toastify";
+import { Notiz } from "../../../types";
 import { AiFillCopy, AiFillDelete } from "react-icons/ai";
 import { useDeleteNotizMutation } from "@/redux/features/notizSlice";
-import EditNote from "./EditNote";
-import { Notiz } from "../../../types";
-import { toast } from "react-toastify";
+import EditNote from "@/components/notiz/EditNote";
 
 export default function NoteRow({ data }: { data: Partial<Notiz> }) {
     const [deleteNotiz, { isError, isSuccess }] = useDeleteNotizMutation()

@@ -1,9 +1,9 @@
 "use client"
-import { useLogoutMutation } from '@/redux/features/authSlice'
-import { FiLogOut } from "react-icons/fi";
-import { useRouter } from "next/navigation";
 import { useEffect } from 'react';
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { FiLogOut } from "react-icons/fi";
+import { useLogoutMutation } from '@/redux/features/authSlice'
 
 export default function LogoutBtn() {
     const router = useRouter();

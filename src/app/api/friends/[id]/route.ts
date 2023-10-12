@@ -21,3 +21,16 @@ export async function DELETE(request: NextRequest) {
     }
 }
 
+export async function GET(request: NextRequest) {
+    try {
+        const friendId = request.url.slice(request.url.lastIndexOf('/') + 1)
+        const friendInfo = await User.find({ _id: friendId }, 'username')
+        const friendName = friendInfo[0].username
+        return NextResponse.json({
+            data: friendName
+        }, { status: 200 });
+    } catch (error: any) {
+        return NextResponse.json({ error: error.message }, { status: 400 });
+    }
+}
+

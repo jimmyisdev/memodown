@@ -1,9 +1,8 @@
 "use client";
-
-import { AiFillDelete } from "react-icons/ai";
-import { useRemoveFriendMutation } from '@/redux/features/friendSlice'
 import React, { useEffect } from 'react'
 import { toast } from "react-toastify";
+import { AiFillDelete } from "react-icons/ai";
+import { useRemoveFriendMutation } from '@/redux/features/friendSlice'
 
 export default function RemoveFriend({ itemId = "" }: { itemId?: string }) {
     const [removeFriend, { isLoading: isRemoveLoadin, isError, isSuccess }] = useRemoveFriendMutation()
