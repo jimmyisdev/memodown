@@ -12,7 +12,7 @@ export default function FriendList() {
     const { data: friendsList, isLoading } = useGetFriendsQuery()
     return (
         <section className="w-96 h-92 ">
-            {isLoading ? <LoadingStatus /> : !friendsList?.data?.length && (<h1>You do not have friend</h1>)}
+            {isLoading ? <LoadingStatus /> : !friendsList?.data?.length && (<h1 className='text-center'>You do not have friend</h1>)}
             <div className="overflow-scroll p-2 h-64 ">
                 {!isLoading && !!friendsList?.data?.length && friendsList.data.map((item: User) => {
                     return <li key={item._id} className=' flex flex-row justify-between align-middle mb-4 '>

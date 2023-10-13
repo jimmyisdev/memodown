@@ -21,5 +21,6 @@ export const config = {
         '/friend',
         '/message',
         '/omikuji',
+        '/formatter',
     ]
 }

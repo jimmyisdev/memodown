@@ -39,7 +39,7 @@ export default function Page() {
     }, [isSuccess])
 
     return (
-        <main className="flex min-h-screen flex-col items-center p-24 ">
+        <main className="relative flex min-h-screen flex-col items-center  p-24 overflow-scroll">
             <SharedLink hrefLink="/" btnText="Back" />
             <PageTopic topicText="Message" />
             {isFetching && <LoadingStatus />}

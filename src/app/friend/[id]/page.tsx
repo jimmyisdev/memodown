@@ -11,7 +11,7 @@ export default function Page({ params }: { params: { id: string } }) {
     const { data, isLoading } = useGetMessagesBySenderIdQuery(id)
     const { data: friendNameData, isLoading: isLoadingFriendName } = useGetFriendUserNameByIdQuery(id)
     return (
-        <main className="flex min-h-screen flex-col items-center  p-24 " >
+        <main className="relative flex min-h-screen flex-col items-center   p-24 overflow-scroll">
             <SharedLink hrefLink="/friend" btnText="Back" />
             {isLoadingFriendName && <LoadingStatus />}
             {!isLoadingFriendName && !isLoading && (

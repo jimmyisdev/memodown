@@ -2,6 +2,5 @@ export const checkIfOneDayPassed = (currentTimestamp: string | number, lastTimeS
     const millisecondsInADay = 1000 * 60 * 60 * 24;
     const timeElapsed = Number(currentTimestamp) - Number(lastTimeStamp);
     const dayPassed = timeElapsed >= millisecondsInADay ? true : false;
-    console.log(timeElapsed)
     return dayPassed;
 }
