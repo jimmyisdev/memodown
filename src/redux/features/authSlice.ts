@@ -5,11 +5,9 @@ import {
 import { apiSlice } from "./apiSlice";
 
 type UserInfo = {
-    data: {
-        email: string,
-        id: string,
-        username: string,
-    }
+    email: string,
+    id: string,
+    username: string,
 }
 type LoginParms = {
     email: string,
@@ -55,7 +53,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 body: token
             })
         }),
-        getUserInfo: builder.query<UserInfo, void>({
+        getUserInfo: builder.query<any, void>({
             query: () => 'users/me',
             providesTags: ["Auth"]
         }),

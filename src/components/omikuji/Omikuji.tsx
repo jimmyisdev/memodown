@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { omikujiSelections, omikujiSelectionsEn } from "@/helpers/const";
 import omikuji from "../../../public/omikuji.png"
+import { omikujiSelections, omikujiSelectionsEn } from "@/helpers/const";
 import { checkIfOneDayPassed } from "@/helpers/checkIfOneDayPassed";
 
 export default function Omikuji() {
