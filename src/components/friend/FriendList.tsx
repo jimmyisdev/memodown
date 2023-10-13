@@ -10,7 +10,6 @@ import SendFriendMessage from '@/components/friend/SendFriendMessage';
 
 export default function FriendList() {
     const { data: friendsList, isLoading } = useGetFriendsQuery()
-    console.log(friendsList)
     return (
         <section className="w-96 h-92 ">
             {isLoading ? <LoadingStatus /> : !friendsList?.data?.length && (<h1>You do not have friend</h1>)}

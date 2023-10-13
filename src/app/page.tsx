@@ -30,6 +30,9 @@ export default function Home() {
             <li className='font-bold mb-4 hover:text-blue-900 hover:font-extrabold ease-linear transition-all duration-250 '>
               <Link href='/message'>Message</Link>
             </li>
+            <li className='font-bold mb-4 hover:text-blue-900 hover:font-extrabold ease-linear transition-all duration-250 '>
+              <Link href='/omikuji'>Omikuji</Link>
+            </li>
           </ul>
         </>
       }

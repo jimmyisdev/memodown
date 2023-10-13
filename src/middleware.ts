@@ -19,6 +19,7 @@ export const config = {
         '/login',
         '/signup',
         '/friend',
-        '/message'
+        '/message',
+        '/omikuji',
     ]
 }

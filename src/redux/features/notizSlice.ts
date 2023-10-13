@@ -70,12 +70,3 @@ const selectNotizsData = createSelector(
     selectNotizsResult,
     notizsResult => notizsResult.data
 )
-
-// export const allNotizs = notizsAdapter.getSelectors()
-
-
-// export const {
-//     selectAll: selectAllNotizs,
-//     // Pass in a selector that returns the posts slice of state
-// } = notizsAdapter.getSelectors(state => selectNotizsData(state) ?? { data: [], message: '' })
-

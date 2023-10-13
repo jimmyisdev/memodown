@@ -9,5 +9,4 @@ export default function NotizTypeSelector({ valGetter, defaultVal = "" }: { valG
                 return <option key={item} value={item}>{item.toUpperCase()}</option>
             })}
         </select>)
-
 }
