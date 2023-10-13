@@ -41,6 +41,7 @@ export default function Omikuji() {
     }, []);
     return (
         <section className=" flex flex-col justify-center items-center m-5">
+            <div className=" flex flex-row text-black-900 items-center"><AiFillInfoCircle /><span className="ml-2">Once per day</span></div>
             {isUsable &&
                 (< button className="omikujiBtn" onClick={handleOmikujiBtn}>
                     <Image
@@ -57,7 +58,6 @@ export default function Omikuji() {
                     <span className="font-black ">{omikujiSelections[Number(recordResult.lastResult)]}</span>
                 </div>
             )}
-            <div className=" flex flex-row text-black-900 items-center"><AiFillInfoCircle /><span className="ml-2">Once per day</span></div>
         </section >
     )
 }

@@ -1,9 +1,10 @@
 "use client"
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { AiOutlineCopy, AiOutlineClear, AiOutlineRotateRight } from "react-icons/ai";
 
 export default function FormatStraight() {
+    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
     const [oneLine, setOneLine] = useState(
         "無職期間\n貯金がアラート\n発令中"
     );
@@ -49,14 +50,21 @@ export default function FormatStraight() {
     }
 
     useEffect(() => {
+    }, []);
+
+    useEffect(() => {
         processText();
+        if (textareaRef.current != null) {
+            textareaRef.current.focus();
+        }
     }, []);
     return (
         <div className="m-5 flex flex-col">
             <h1 className="font-bold mb-2 text-center">Make text straight</h1>
             <div className="flex flex-col justify-center items-center h-100 w-80 rounded-md	 overflow-scroll  bg-stone-100">
                 <textarea
-                    className="w-64 h-auto p-2 m-3 rounded-md"
+                    ref={textareaRef}
+                    className="w-64 h-auto p-2 m-3 rounded-md focus:outline-none"
                     cols={15}
                     rows={5}
                     onChange={(e) => setOneLine(e.target.value)}
@@ -72,7 +80,7 @@ export default function FormatStraight() {
                 )}
                 <div className="flex flex-row justify-around m-2 w-full" >
                     <input
-                        className="w-10 h-10 p-2"
+                        className="w-10 h-10 p-2 focus:outline-none"
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFiller(e.target.value)}
                         value={filler}
                     />

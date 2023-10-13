@@ -28,9 +28,7 @@ export default function AddFriend() {
     }, [isSuccess])
 
     useEffect(() => {
-        // 👉️ ref could be null here
         if (inputRef.current != null) {
-            // 👉️ TypeScript knows that ref is not null here
             inputRef.current.focus();
         }
     }, []);

@@ -22,7 +22,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <ul className='flex flex-col justify-center  my-3'>
                 {!isLoading && !!data?.data.length && data?.data.map((item: any) => {
                     return (
-                        <li key={item._id} className='flex flex-row justify-between mb-3 w-96'>
+                        <li key={item._id} className='flex flex-row justify-between mb-3 w-96 hover:font-bold ease-linear transition-all duration-150'>
                             <span>{getExcerptedText(item.content)}</span>
                             <MessageDetail text={item.content} time={String(moment(item.createdAt).format("YYYY-MM-DD HH:mm"))} />
                         </li>
