@@ -5,6 +5,8 @@ import LoadingStatus from "@/components/shared/LoadingStatus"
 import SharedLink from "@/components/shared/SharedLink"
 import { useGetMessagesBySenderIdQuery } from "@/redux/features/messageSlice"
 import { useGetFriendUserNameByIdQuery } from "@/redux/features/friendSlice";
+import MessageDetail from "@/components/friend/MessageDetail";
+import { getExcerptedText } from "@/helpers/getExcerptedText";
 
 export default function Page({ params }: { params: { id: string } }) {
     const { id } = params
@@ -21,8 +23,8 @@ export default function Page({ params }: { params: { id: string } }) {
                 {!isLoading && !!data?.data.length && data?.data.map((item: any) => {
                     return (
                         <li key={item._id} className='flex flex-row justify-between mb-3 w-96'>
-                            <span>{item.content}</span>
-                            <span className="text-gray-400">{moment(item.createdAt).format("YYYY-MM-DD HH:mm")}</span>
+                            <span>{getExcerptedText(item.content)}</span>
+                            <MessageDetail text={item.content} time={String(moment(item.createdAt).format("YYYY-MM-DD HH:mm"))} />
                         </li>
                     )
                 })}

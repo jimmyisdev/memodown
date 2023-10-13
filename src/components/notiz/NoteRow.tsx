@@ -5,11 +5,11 @@ import { Notiz } from "../../../types";
 import { AiFillCopy, AiFillDelete } from "react-icons/ai";
 import { useDeleteNotizMutation } from "@/redux/features/notizSlice";
 import EditNote from "@/components/notiz/EditNote";
+import { getExcerptedText } from "@/helpers/getExcerptedText";
 
 export default function NoteRow({ data }: { data: Partial<Notiz> }) {
     const [deleteNotiz, { isError }] = useDeleteNotizMutation()
     const { type = "", content = "", _id = "" } = data
-    const porcessedContent = useMemo(() => content.length < 20 ? content : content.slice(0, 20) + "...", [content])
     const handleDeleteBtn = useCallback(() => deleteNotiz(_id), [deleteNotiz])
     const handleCopyBtn = async () => {
         if ('clipboard' in navigator) await navigator.clipboard.writeText(content);
@@ -31,7 +31,7 @@ export default function NoteRow({ data }: { data: Partial<Notiz> }) {
                 </div>
                 <div className="flex flex-col justify-center items-center  w-52 ">
                     <span className="w-full" >
-                        {`${porcessedContent}`}
+                        {`${getExcerptedText(content)}`}
                     </span>
                 </div>
                 <div className="w-18  flex flex-row hover:font-medium">
