@@ -54,9 +54,9 @@ export default function FormatStraight() {
     return (
         <div className="m-5 flex flex-col">
             <h1 className="font-bold mb-2 text-center">Make text straight</h1>
-            <div className="flex flex-col justify-center items-center h-100 w-80 overflow-scroll  bg-slate-200">
+            <div className="flex flex-col justify-center items-center h-100 w-80 rounded-md	 overflow-scroll  bg-stone-100">
                 <textarea
-                    className="w-64 h-auto p-2 m-3 "
+                    className="w-64 h-auto p-2 m-3 rounded-md"
                     cols={15}
                     rows={5}
                     onChange={(e) => setOneLine(e.target.value)}
@@ -64,7 +64,7 @@ export default function FormatStraight() {
                     value={oneLine}
                 />
                 {!!porcessedText.length && (
-                    <div className="flex flex-col  w-64 h-auto p-2 bg-slate-100 ">
+                    <div className="flex flex-col  w-64 h-auto p-2 bg-stone-200 rounded-md">
                         {porcessedText.map((item: string) => {
                             return <span key={item} className="m-1　">{item}</span>;
                         })}

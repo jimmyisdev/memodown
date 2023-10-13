@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { AiFillInfoCircle } from "react-icons/ai";
 import omikuji from "../../../public/omikuji.png"
 import { omikujiSelections, omikujiSelectionsEn } from "@/helpers/const";
 import { checkIfOneDayPassed } from "@/helpers/checkIfOneDayPassed";
@@ -39,7 +40,7 @@ export default function Omikuji() {
         }
     }, []);
     return (
-        <section className="flex flex-col justify-center items-center m-5">
+        <section className=" flex flex-col justify-center items-center m-5">
             {isUsable &&
                 (< button className="omikujiBtn" onClick={handleOmikujiBtn}>
                     <Image
@@ -51,12 +52,12 @@ export default function Omikuji() {
                     />
                 </button>)}
             {!isUsable && !!recordResult.lastResult && (
-                <div className="flex flex-col m-5 justify-center items-center">
-                    <span className="font-black">{omikujiSelectionsEn[Number(recordResult.lastResult)].toUpperCase()}</span>
-                    <span className="font-black">{omikujiSelections[Number(recordResult.lastResult)]}</span>
+                <div className="flex flex-col m-5 justify-center items-center text-red-300 hover:text-3xl hover:text-red-700 ease-linear transition-all duration-1000">
+                    <span className="font-black ">{omikujiSelectionsEn[Number(recordResult.lastResult)].toUpperCase()}</span>
+                    <span className="font-black ">{omikujiSelections[Number(recordResult.lastResult)]}</span>
                 </div>
             )}
-            <span className="text-red-500">Once per day</span>
+            <div className=" flex flex-row text-black-900 items-center"><AiFillInfoCircle /><span className="ml-2">Once per day</span></div>
         </section >
     )
 }
