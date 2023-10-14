@@ -59,8 +59,7 @@ export default function Page() {
                         </div>
                         <button className='hover:text-blue-900 hover:font-bold text-center m-1 ease-linear transition-all duration-150' disabled={isLoading} onClick={handleConfirmBtn}>{isLoading ? "Loading..." : "Send"}</button>
                     </section>
-                )
-            }
+                )}
             <GlobalSetting />
         </main >
     )

@@ -50,8 +50,6 @@ export default function ChangePassword() {
         }
     }, [isSuccess])
 
-
-
     return (
         <>
             <button className='mx-2  px-4 py-2 pointer-events-auto  hover:text-blue-900   ease-linear transition-all duration-250' type="button" data-tooltip-target="change-password" onClick={handlOpenBtn}><MdPassword /></button>

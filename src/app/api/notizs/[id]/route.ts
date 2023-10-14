@@ -1,7 +1,7 @@
+import mongoose from "mongoose"
 import { connect } from "@/dbConfig/dbConfig";
 import Notiz from "@/models/notizModel";
 import { NextRequest, NextResponse } from "next/server";
-import mongoose from "mongoose"
 
 connect()
 

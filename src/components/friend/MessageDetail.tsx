@@ -19,7 +19,7 @@ export default function MessageDetail({ text = '', time = '' }) {
                                     </h3>
                                     <span className="text-gray-400">{time}</span>
                                 </div>
-                                <div className="relative  flex flex-col w-96 h-48">
+                                <div className="relative  flex flex-col w-92 h-48">
                                     <span className="p-3">{text}</span>
                                 </div>
                                 <div className="flex flex-row justify-around pt-2 ">
