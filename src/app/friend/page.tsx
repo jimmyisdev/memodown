@@ -3,6 +3,8 @@ import SharedLink from "@/components/shared/SharedLink";
 import AddFriend from "@/components/friend/AddFriend";
 import FriendList from "@/components/friend/FriendList";
 import GlobalSetting from "@/components/shared/GlobalSetting";
+import { Suspense } from "react";
+import LoadingStatus from "@/components/shared/LoadingStatus";
 
 export default function Page() {
     return (
@@ -10,7 +12,9 @@ export default function Page() {
             <SharedLink hrefLink="/" btnText="Back" />
             <PageTopic topicText="Friend" />
             <AddFriend />
-            <FriendList />
+            <Suspense fallback={<LoadingStatus />}>
+                <FriendList />
+            </Suspense>
             <GlobalSetting />
         </main>
     )

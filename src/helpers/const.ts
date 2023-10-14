@@ -9,7 +9,7 @@ export const mainPages = [
     },
     {
         route: "message",
-        name: 'Send Messages'
+        name: 'Send Message'
     },
     {
         route: "omikuji",

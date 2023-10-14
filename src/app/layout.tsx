@@ -38,7 +38,6 @@ export default function RootLayout({
           pauseOnHover
           theme="dark"
         />
-
       </body>
     </html>
   )

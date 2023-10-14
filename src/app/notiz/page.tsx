@@ -1,9 +1,11 @@
 "use client";
+import { Suspense } from "react";
 import NotizContainer from "@/components/notiz/NotizContainer";
 import NotizGenerator from "@/components/notiz/NotizGenerator";
 import SharedLink from "@/components/shared/SharedLink";
 import PageTopic from "@/components/shared/PageTopic";
 import GlobalSetting from "@/components/shared/GlobalSetting";
+import LoadingStatus from "@/components/shared/LoadingStatus";
 
 export default function Page() {
     return (
@@ -11,7 +13,9 @@ export default function Page() {
             <SharedLink hrefLink="/" btnText="Back" />
             <PageTopic topicText="Note" />
             <NotizGenerator />
-            <NotizContainer />
+            <Suspense fallback={<LoadingStatus />}>
+                <NotizContainer />
+            </Suspense >
             <GlobalSetting />
         </main >
     )
