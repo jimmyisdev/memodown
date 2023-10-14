@@ -10,6 +10,7 @@ export default function LogoutBtn() {
     const [logout, { isLoading, isSuccess, isError }] = useLogoutMutation()
     async function handleLogoutBtn() {
         await logout({})
+        localStorage.removeItem("omikuji-records");
         router.push("/login")
     }
     useEffect(() => {
