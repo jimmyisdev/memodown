@@ -71,15 +71,15 @@ export default function ChangePassword() {
                                     <input className="p-3 mb-3 border-b-2 border-blue-900 border-transparent focus:outline-none" name="password" disabled={isLoading} type="password" placeholder="Input new password" onChange={(e) => handleOnChange('password', e.target.value)} />
                                     <input className="p-3 mb-3 border-b-2 border-blue-900 border-transparent focus:outline-none" name="password" disabled={isLoading} type="password" placeholder="Input new password again" onChange={(e) => handleOnChange('passwordCheck', e.target.value)} />
                                 </div>
-                                <div className="flex items-center  p-6  rounded-b">
+                                <div className="flex flex-row justify-around pt-2 ">
                                     <button
-                                        className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                        className="text-red-500 background-transparent font-medium text-center  px-6 py-2 hover:font-bold ease-linear transition-all duration-150"
                                         type="button"
                                         onClick={handleCloseBtn}
                                     >
                                         Close
                                     </button>
-                                    <button type="button" className='bg-blue-900  active:bg-blue-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 text-white  text-center cursor-pointer' disabled={isLoading} onClick={handleConfirmBtn}>{isLoading ? "Loading..." : "Confirm"}</button>
+                                    <button type="button" className='text-blue-900 font-medium text-center  px-6 py-2 hover:font-bold ease-linear transition-all duration-150' disabled={isLoading} onClick={handleConfirmBtn}>{isLoading ? "Loading..." : "Confirm"}</button>
                                 </div>
                             </div>
                         </div>
