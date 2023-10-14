@@ -90,7 +90,5 @@
 
 .omikujiBtn:hover {
   animation: tilt-shaking 0.5s infinite;
-  /* Adjust duration and iteration as needed */
   transform-origin: center;
-  /* Set the transform origin for the rotation */
 }

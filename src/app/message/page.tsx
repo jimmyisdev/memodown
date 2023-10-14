@@ -41,14 +41,14 @@ export default function Page() {
     return (
         <main className="relative flex min-h-screen flex-col items-center  p-24 overflow-scroll">
             <SharedLink hrefLink="/" btnText="Back" />
-            <PageTopic topicText="Message" />
+            <PageTopic topicText="Send Message" />
             {isFetching && <LoadingStatus />}
             {
                 !isFetching && (
                     <section className="flex flex-col">
                         <div>
                             <select name="sentTo" id="sentTo" onChange={(e) => handleOnChange('sentTo', e.target.value)}>
-                                <option value="">Send To</option>
+                                <option value="">To</option>
                                 {!!friendsList?.data?.length && friendsList.data.map((item: Partial<User>) => {
                                     return <option key={`receiver_${item._id}`} value={item._id}>{item.username}</option>
                                 })}

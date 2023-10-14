@@ -36,8 +36,8 @@ export default function AddFriend() {
     return (
         <section className="mb-5 ">
             <div className="flex flex-row justify-between align-middle ">
-                <input className="p-4 mt-1 border-transparent focus:outline-none" ref={inputRef} placeholder="Add friend email" onChange={(e) => setEmail(e.target.value)} />
-                <button className='text-blue-900 font-medium text-center m-1 cursor-pointer' disabled={isAddLoading} onClick={handleAddBtn}>{isAddLoading ? "Loading " : <AiOutlineUserAdd />}</button>
+                <input className="p-4  border-transparent focus:outline-none " ref={inputRef} placeholder="Add friend email" onChange={(e) => setEmail(e.target.value)} />
+                <button className=' font-medium text-center  cursor-pointer hover:text-blue-900 ease-linear transition-all duration-150' disabled={isAddLoading} onClick={handleAddBtn}>{isAddLoading ? "Loading " : <AiOutlineUserAdd />}</button>
             </div>
         </section>)
 }
