@@ -61,7 +61,7 @@ export default function FormatStraight() {
     return (
         <div className="m-5 flex flex-col">
             <h1 className="font-bold mb-2 text-center">Make text straight</h1>
-            <div className="flex flex-col justify-center items-center h-100 w-80 rounded-md	 overflow-scroll  bg-stone-100">
+            <div className="flex flex-col justify-center items-center h-100 w-72 rounded-md	 overflow-scroll  bg-stone-100">
                 <textarea
                     ref={textareaRef}
                     className="w-64 h-auto p-2 m-3 rounded-md focus:outline-none"

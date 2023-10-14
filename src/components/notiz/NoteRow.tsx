@@ -24,17 +24,17 @@ export default function NoteRow({ data }: { data: Partial<Notiz> }) {
     return (
         <div className="flex flex-col mb-3 ">
             <div className={`flex flex-row justify-between p-2 border-b-2 border-gray-900  hover:font-bold ease-linear transition-all duration-250`}>
-                <div className="flex flex-col justify-center items-center w-16  ">
+                <div className="flex flex-col justify-center items-center w-20  ">
                     <span className={`w-full ${type}  ease-linear transition-all duration-250`} >
                         {type.toUpperCase()}
                     </span>
                 </div>
-                <div className="flex flex-col justify-center items-center  w-52 ">
+                <div className="flex flex-col justify-center items-center  w-44 ">
                     <span className="w-full" >
-                        {`${getExcerptedText(content)}`}
+                        {`${getExcerptedText(content, 10)}`}
                     </span>
                 </div>
-                <div className="w-18  flex flex-row hover:font-medium">
+                <div className=" flex flex-row hover:font-medium">
                     <EditNote data={data} />
                     <button className="w-full m-1 cursor-pointer hover:text-blue-900 ease-linear transition-all duration-250" onClick={handleDeleteBtn}><AiFillDelete /></button>
                     <button className="w-full m-1 cursor-pointer hover:text-blue-900 ease-linear transition-all duration-250" onClick={handleCopyBtn}><AiFillCopy /></button>

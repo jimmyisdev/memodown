@@ -66,7 +66,7 @@ export default function NotizGenerator() {
                                             <NotizTypeSelector valGetter={handleOnChange} defaultVal='' />
                                         </section>
                                         <section className='my-1'>
-                                            <textarea id="id" name="content" className='p-2 w-96 border-transparent focus:outline-none' onChange={(e) => handleOnChange('content', e.target.value)} placeholder='write down...' rows={10} cols={25} />
+                                            <textarea id="id" name="content" className='p-2 w-72 border-transparent focus:outline-none' onChange={(e) => handleOnChange('content', e.target.value)} placeholder='write down...' rows={10} cols={25} />
                                         </section>
                                     </div>
                                 </div>

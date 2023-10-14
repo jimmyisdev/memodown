@@ -65,9 +65,9 @@ export default function ChangePassword() {
                                         Change Password
                                     </h3>
                                 </div>
-                                <div className="relative  flex flex-col  p-3">
-                                    <input className="p-3 mb-3 border-b-2 border-blue-900 border-transparent focus:outline-none" name="password" disabled={isLoading} type="password" placeholder="Input new password" onChange={(e) => handleOnChange('password', e.target.value)} />
-                                    <input className="p-3 mb-3 border-b-2 border-blue-900 border-transparent focus:outline-none" name="password" disabled={isLoading} type="password" placeholder="Input new password again" onChange={(e) => handleOnChange('passwordCheck', e.target.value)} />
+                                <div className="relative  flex flex-col  p-3 ">
+                                    <input className="p-3 mb-3 w-72 border-b-2 border-blue-900 border-transparent focus:outline-none" name="password" disabled={isLoading} type="password" placeholder="Input new password" onChange={(e) => handleOnChange('password', e.target.value)} />
+                                    <input className="p-3 mb-3 w-72 border-b-2 border-blue-900 border-transparent focus:outline-none" name="password" disabled={isLoading} type="password" placeholder="Input new password again" onChange={(e) => handleOnChange('passwordCheck', e.target.value)} />
                                 </div>
                                 <div className="flex flex-row justify-around pt-2 ">
                                     <button
